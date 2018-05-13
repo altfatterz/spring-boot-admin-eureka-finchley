@@ -35,7 +35,7 @@ class FooController {
         this.barClient = barClient;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String foo() {
         return "foo";
     }

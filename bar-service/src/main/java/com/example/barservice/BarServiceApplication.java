@@ -16,7 +16,7 @@ public class BarServiceApplication {
 @RestController
 class BarController {
 
-    @GetMapping
+    @GetMapping("/")
     String bar() {
         return "bar";
     }
