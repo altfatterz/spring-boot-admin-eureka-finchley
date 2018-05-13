@@ -1,0 +1,12 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+# by default every Eureka Server is also an Eureka Client and requires (at least one) service URL to locate a peer.
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
