@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: baz-service
+  security:
+    user:
+      name: baz
+      password: password
+
+# Is using the spring boot admin client api and is registered with the following:
+#{
+#    "registration": {
+#        "name": "baz-service",
+#        "managementUrl": "http://localhost:8083/actuator",
+#        "healthUrl": "http://localhost:8083/actuator/health",
+#        "serviceUrl": "http://localhost:8083/",
+#        "source": "http-api",
+#        "metadata": {
+#            "user.name": "baz",
+#            "user.password": "******",
+#            "startup": "2018-05-14T17:30:03.741+02:00"
+#        }
+#    }
+#}
+
+  boot.admin.client:
+    url: http://localhost:9999
+    instance:
+      metadata:
+        user.name: ${spring.security.user.name}
+        user.password: ${spring.security.user.password}
+
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web.exposure.include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+

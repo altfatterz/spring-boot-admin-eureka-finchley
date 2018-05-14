@@ -4,6 +4,36 @@ server:
 spring:
   application:
     name: foo-service
+  security:
+    user:
+      name: foo
+      password: password
+
+# username and password will be sent to eureka from where the spring boot admin will fetch
+#{
+#    "registration": {
+#        "name": "FOO-SERVICE",
+#        "managementUrl": "http://10.44.66.87:8080/actuator",
+#        "healthUrl": "http://10.44.66.87:8080/actuator/health",
+#        "serviceUrl": "http://10.44.66.87:8080/",
+#        "source": "discovery",
+#        "metadata": {
+#            "user.name": "foo",
+#            "management.port": "8080",
+#            "jmx.port": "52698",
+#            "user.password": "******"
+#        }
+#    }
+#}
+
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+
+# If Spring Security is on the classpath and no other WebSecurityConfigurerAdapter is present, the actuators are secured by Spring Boot auto-config.
 
 management:
   endpoints:
