@@ -24,6 +24,8 @@ spring:
 
   boot.admin.client:
     url: http://localhost:9999
+    username: admin
+    password: password
     instance:
       metadata:
         user.name: ${spring.security.user.name}
