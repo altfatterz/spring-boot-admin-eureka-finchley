@@ -26,11 +26,18 @@ spring:
 #    }
 #}
 
+
+# When using Spring Cloud Discovery, you must be aware that anybody who can query your service registry can obtain the credentials.
+
 eureka:
   instance:
     metadata-map:
       user.name: ${spring.security.user.name}
       user.password: ${spring.security.user.password}
+
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka/
 
 
 # If Spring Security is on the classpath and no other WebSecurityConfigurerAdapter is present, the actuators are secured by Spring Boot auto-config.

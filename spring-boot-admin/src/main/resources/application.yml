@@ -3,3 +3,8 @@ server:
 spring:
   application:
     name: spring-boot-admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka/

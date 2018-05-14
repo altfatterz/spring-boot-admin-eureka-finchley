@@ -30,7 +30,7 @@ spring:
         user.password: ${spring.security.user.password}
 
 server:
-  port: 8083
+  port: 8082
 
 management:
   endpoints:

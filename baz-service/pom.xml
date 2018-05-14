@@ -59,11 +59,22 @@
 		</dependency>
 	</dependencies>
 
+	<!-- To have the version show up in the application list you can use the build-info goal from the
+	spring-boot-maven-plugin, which generates the META-INF/build-info.properties.
+	See https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-build-info -->
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

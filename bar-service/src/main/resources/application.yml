@@ -3,16 +3,11 @@ server:
 spring:
   application:
     name: bar-service
-  security:
-    user:
-      name: bar
-      password: password
 
 eureka:
-  instance:
-    metadata-map:
-      user.name: ${spring.security.user.name}
-      user.password: ${spring.security.user.password}
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka/
 
 management:
   endpoints:
