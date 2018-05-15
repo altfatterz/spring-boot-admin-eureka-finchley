@@ -7,13 +7,12 @@ spring:
     user:
       name: admin
       password: password
+  boot:
+    admin:
+      discovery:
+        ignored-services: spring-boot-admin
 
 eureka:
-  instance:
-    metadata-map:
-      user.name: ${spring.security.user.name}
-      user.password: ${spring.security.user.password}
-
   client:
     service-url:
       defaultZone: http://eureka:password@localhost:8761/eureka/
